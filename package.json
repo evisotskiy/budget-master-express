@@ -32,6 +32,7 @@
     "@types/jest": "^25.1.4",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-jest": "^23.8.2",
     "husky": "^4.2.3",
     "jest": "^25.2.3",
     "jest-ajv": "^1.0.3",
@@ -46,10 +47,10 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "**/*.js": [
       "eslint --cache --fix --max-warnings=0",
-      "jest"
+      "jest --bail --findRelatedTests"
     ],
-    "*.{js,json,md}": "prettier --write"
+    "**/*.{js,json,md}": "prettier --write"
   }
 }

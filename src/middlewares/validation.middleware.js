@@ -1,14 +1,14 @@
-const { validationResult } = require('express-validator')
+const { validationResult } = require('express-validator');
 
 module.exports = function (req, res, next) {
-    const errors = validationResult(req)
+  const errors = validationResult(req);
 
-    if (!errors.isEmpty()) {
-        return res.status(422).json({
-            errors: errors.array(),
-            message: 'Validation errors during registration'
-        })
-    }
+  if (!errors.isEmpty()) {
+    return res.status(422).json({
+      errors: errors.array(),
+      message: 'Validation errors during registration',
+    });
+  }
 
-    next();
-}
+  next();
+};

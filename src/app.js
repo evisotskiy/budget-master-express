@@ -12,39 +12,39 @@ const recordRoutes = require('./routes/record.routes');
 const upload = multer();
 
 const createApp = () => {
-    const app = express()
+  const app = express();
 
-    app.use(express.json({ extended: true }))
-    app.use(upload.none())
+  app.use(express.json({ extended: true }));
+  app.use(upload.none());
 
-    app.use('/api/auth', authRoutes)
+  app.use('/api/auth', authRoutes);
 
-    app.use(authCheck())
+  app.use(authCheck());
 
-    app.use('/api/user', userRoutes)
-    app.use('/api/category', categoryRoutes)
-    app.use('/api/record', recordRoutes)
+  app.use('/api/user', userRoutes);
+  app.use('/api/category', categoryRoutes);
+  app.use('/api/record', recordRoutes);
 
-    return app;
-}
+  return app;
+};
 
 if (!module.parent) {
-    (async () => {
-        try {
-            const PORT = process.env.PORT || 5000;
+  (async () => {
+    try {
+      const PORT = process.env.PORT || 5000;
 
-            await mongoose.connect(process.env.MONGODB_URI, {
-                useNewUrlParser: true,
-                useFindAndModify: false,
-                useCreateIndex: true,
-                useUnifiedTopology: true,
-            })
+      await mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+      });
 
-            createApp().listen(PORT, () => console.log('App has been started on port %s', PORT));
-        } catch (e) {
-            console.error(e)
-        }
-    })()
+      createApp().listen(PORT, () => console.log('App has been started on port %s', PORT));
+    } catch (e) {
+      console.error(e);
+    }
+  })();
 }
 
 exports.createApp = createApp;
