@@ -10,7 +10,7 @@
     "dev:debug": "nodemon --inspect src/app.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:debug": "node  --inspect ./node_modules/jest/bin/jest.js %FILE%"
+    "test:debug": "node --inspect ./node_modules/jest/bin/jest.js %FILE%"
   },
   "keywords": [],
   "author": "",
