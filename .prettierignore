@@ -1,5 +1,8 @@
 node_modules
 .local
+
 .gitignore
+.eslintignore
 .prettierignore
 .env
+.eslintcache
